@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poem Rank Game</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container header-content">
+      <div class="brand">
+        <div class="logo">✒️</div>
+        <div>
+          <p class="eyebrow">Poem Rank Game</p>
+          <p class="subtitle">Gather friends, rate lines, compare tastes.</p>
+        </div>
+      </div>
+      <nav class="nav-actions">
+        <a class="nav-link" href="{{ url_for('index') }}">Start over</a>
+        <a class="nav-link" href="https://github.com" target="_blank" rel="noreferrer">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    {% if error_message %}
+      <div class="alert">{{ error_message }}</div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <p>Share poetry, compare scores, and celebrate every line.</p>
+    </div>
+  </footer>
+</body>
+</html>

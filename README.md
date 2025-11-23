@@ -1,8 +1,22 @@
 # Poem Rank Game
 
-An interactive terminal game where 2–5 players each receive a random four-line poem and rate every line on a 1–5 scale.
+An interactive game where 2–5 players each receive a random four-line poem and rate every line on a 1–5 scale. You can play in the terminal or through the new web experience.
 
 ## How to play
+### Web version
+1. Ensure you have Python 3.8+ available.
+2. Install the web dependency:
+   ```bash
+   pip install flask
+   ```
+3. Start the server:
+   ```bash
+   python app.py
+   ```
+4. Visit http://127.0.0.1:5000 in your browser.
+5. Choose the number of players (2–5), add names, then rate every line in the assigned poems. Results are summarized on the final page.
+
+### Terminal version
 1. Ensure you have Python 3.8+ available.
 2. Run the game:
    ```bash

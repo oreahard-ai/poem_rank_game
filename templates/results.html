@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+  <div class="panel-header">
+    <div>
+      <p class="eyebrow">Step 3</p>
+      <h1>See how everyone scored</h1>
+      <p class="description">Here are each player's average and the group-wide average across all poem lines.</p>
+    </div>
+    <div class="pill">Finished</div>
+  </div>
+
+  <div class="grid results">
+    {% for player in per_player %}
+      <article class="card">
+        <div class="card-heading">
+          <div class="avatar">{{ player.name[0]|upper }}</div>
+          <div>
+            <p class="eyebrow">{{ player.name }}</p>
+            <h2>{{ player.title }}</h2>
+            <p class="muted">Average: {{ '%.2f'|format(player.average) }}</p>
+          </div>
+        </div>
+        <ol class="poem-lines">
+          {% for line, score in player.lines %}
+            <li>
+              <div class="line-text">{{ line }}</div>
+              <div class="chip">{{ score }}/5</div>
+            </li>
+          {% endfor %}
+        </ol>
+      </article>
+    {% endfor %}
+  </div>
+
+  <div class="group-average">
+    <p class="eyebrow">Group average</p>
+    <p class="big-number">{{ '%.2f'|format(group_average) }}</p>
+  </div>
+
+  <div class="actions">
+    <a class="ghost" href="{{ url_for('index') }}">Play again</a>
+  </div>
+</section>
+{% endblock %}
