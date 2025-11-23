@@ -1,0 +1,347 @@
+:root {
+  --bg: #0f172a;
+  --panel: #0b1224;
+  --card: #11192f;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #7c3aed;
+  --accent-2: #38bdf8;
+  --border: #1e293b;
+  --shadow: 0 16px 60px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.15), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(56, 189, 248, 0.18), transparent 25%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.app-header {
+  border-bottom: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  font-size: 22px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--accent-2);
+  font-size: 12px;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  border-color: var(--accent-2);
+  color: #fff;
+}
+
+.main-content {
+  padding: 32px 0 64px;
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.55), rgba(15, 23, 42, 0.85));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.panel h1 {
+  margin: 4px 0 8px;
+  font-size: 32px;
+}
+
+.description {
+  margin: 0;
+  color: var(--muted);
+  max-width: 620px;
+}
+
+.pill {
+  border-radius: 999px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+.input:focus {
+  outline: 2px solid var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.input.compact {
+  padding: 8px 12px;
+}
+
+.cta {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.alert {
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #fecdd3;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow);
+}
+
+.card-heading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid var(--border);
+  font-weight: 700;
+}
+
+.poem-lines {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.poem-lines li {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.line-text {
+  margin: 0;
+}
+
+.line-actions {
+  min-width: 120px;
+  text-align: right;
+}
+
+.inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.poems {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.results {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.muted {
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+
+.chip {
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid var(--accent);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.group-average {
+  text-align: center;
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.big-number {
+  font-size: 48px;
+  margin: 6px 0 0;
+}
+
+.app-footer {
+  border-top: 1px solid var(--border);
+  padding: 16px 0 24px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .line-actions {
+    text-align: left;
+  }
+
+  .poem-lines li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

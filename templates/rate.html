@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+  <div class="panel-header">
+    <div>
+      <p class="eyebrow">Step 2</p>
+      <h1>Score each line</h1>
+      <p class="description">Read your poem and rate every line from 1 (lowest) to 5 (highest). Each player has their own poem.</p>
+    </div>
+    <div class="pill">{{ player_count }} player{{ 's' if player_count > 1 else '' }}</div>
+  </div>
+
+  <form class="stack" action="{{ url_for('results') }}" method="post">
+    <input type="hidden" name="player_count" value="{{ player_count }}" />
+    <div class="grid poems">
+      {% for assignment in assignments %}
+        <article class="card">
+          <div class="card-heading">
+            <div class="avatar">{{ assignment.name[0]|upper }}</div>
+            <div>
+              <p class="eyebrow">{{ assignment.name }}</p>
+              <h2>{{ assignment.poem_title }}</h2>
+            </div>
+          </div>
+
+          <input type="hidden" name="player_{{ loop.index0 }}_name" value="{{ assignment.name }}" />
+          <input type="hidden" name="player_{{ loop.index0 }}_title" value="{{ assignment.poem_title }}" />
+
+          <ol class="poem-lines">
+            {% for line in assignment.poem_lines %}
+              <li>
+                <div class="line-text">{{ line }}</div>
+                <div class="line-actions">
+                  <label class="field inline">
+                    <span class="field-label">Rating</span>
+                    <select name="player_{{ loop.parent.index0 }}_score_{{ loop.index0 }}" class="input compact" required>
+                      {% for value in range(1, 6) %}
+                        <option value="{{ value }}" {% if assignment.existing_scores and assignment.existing_scores[loop.index0]==value %}selected{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                    </select>
+                  </label>
+                </div>
+                <input type="hidden" name="player_{{ loop.parent.index0 }}_line_{{ loop.index0 }}" value="{{ line }}" />
+              </li>
+            {% endfor %}
+          </ol>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="actions">
+      <button class="ghost" type="button" onclick="history.back()">Back</button>
+      <button class="cta" type="submit">See results</button>
+    </div>
+  </form>
+</section>
+{% endblock %}
